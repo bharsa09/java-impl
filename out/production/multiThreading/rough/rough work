@@ -1,0 +1,30 @@
+class rough.A extends Thread{
+
+    static Thread s;
+
+    public void run(){
+        System.out.println("the is child thread");
+        try {
+            s.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("the is child thread ended after main thread stopped");
+    }
+}
+
+
+public class example {
+
+    public static void main(String[] args) throws InterruptedException{
+        rough.A.s=Thread.currentThread();
+        rough.A a=new rough.A();
+        System.out.println("program Started...");
+        a.start();
+        Thread.sleep(10000);
+
+        System.out.println("program ended");
+    }
+
+
+}

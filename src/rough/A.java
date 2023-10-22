@@ -1,3 +1,5 @@
+package rough;
+
 class A extends Thread {
     static Thread s;
 
